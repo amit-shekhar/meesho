@@ -1,0 +1,4 @@
+# Logfile created on 2018-05-26 15:50:00 +0530 by logger.rb/56815
+W, [2018-05-26T15:50:41.927223 #69723]  WARN -- : sending email receipients:["someemail@gmail.com"] body:Order Placedsend it later attachment:
+W, [2018-05-26T15:50:41.931271 #69723]  WARN -- : sending email receipients:["someemail@gmail.com"] body:Order Placedsend it later attachment:
+W, [2018-05-26T15:50:41.936991 #69723]  WARN -- : sending email receipients:["someemail@gmail.com"] body:Order Placedsend it later attachment:

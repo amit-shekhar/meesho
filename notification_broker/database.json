@@ -1,0 +1,24 @@
+{
+  "order_placed": [
+    {
+      "type": "sms",
+      "receipients": [
+        "1234567890"
+      ],
+      "body": "Order Placed"
+    },
+    {
+      "type": "email",
+      "receipients": [
+        "someemail@gmail.com"
+      ],
+      "body": "Order Placed",
+      "attachments": [
+        {
+          "name": "invoice",
+          "missing_text": "send it later"
+        }
+      ]
+    }
+  ]
+}
