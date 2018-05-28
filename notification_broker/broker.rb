@@ -42,8 +42,8 @@ MAX_RETRY_COUNT = 3
 kafka.each_message(topic: "attachement_missing") do |message|
   begin
     data = JSON.parse(JSON.parse(message.value))
-    if invoice_get
-      notifiy
+    if get_invoice #TODO make method to fetch invoice from invoice service
+      #TODO send invoice email
     else
       if data["retry_count"] + 1 < MAX_RETRY_COUNT
         data["retry_count"]  = data["retry_count"] + 1

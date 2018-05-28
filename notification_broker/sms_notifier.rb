@@ -1,6 +1,9 @@
 require 'json'
+require './receipients'
 module Notification
   class SmsNotifier
+
+    include Receipients
 
     def initialize(params={})
       @receipients = params["receipients"]
@@ -26,19 +29,13 @@ module Notification
     end
 
     def receipients
-      # receipients_list = []
-      # @receipients.each do ||
-
-      # end
-      @receipients
+      @receipients.map do |receipient|
+        public_send(receipient,order,"phone_no")
+      end
     end
 
-    # def receipients_list
-    #
-    # end
-
     def body
-      @body
+      @body #TODO populate string template with order related variables
     end
 
     def send

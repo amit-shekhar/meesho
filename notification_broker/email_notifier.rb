@@ -1,9 +1,10 @@
 require "./attachments"
-
+require './receipients'
 module Notification
   class EmailNotifier
 
     include Attachments
+    include Receipients
 
     def initialize(params={})
       @receipients = params["receipients"]
@@ -31,7 +32,9 @@ module Notification
     end
 
     def receipients
-      @receipients
+      @receipients.map do |receipient|
+        public_send(receipient,order,"email")
+      end
     end
 
     def body
@@ -66,7 +69,7 @@ module Notification
       end
       puts "sending email body:#{body}"
       begin
-        producer.produce({"receipients": receipients,"body": body,"attachment": attachment_details,message_id: message_id}.to_json, topic: topic)
+        producer.produce({"receipients": receipients_list,"body": body,"attachment": attachment_details,message_id: message_id}.to_json, topic: topic)
         producer.deliver_messages
       rescue => e
         puts e

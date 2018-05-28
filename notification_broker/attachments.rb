@@ -9,6 +9,9 @@ module Notification
       }
       return JSON.parse(res.body)["attachment"]
     end
+
+    #TODO Add other attachment types
+    
   end
 end
 

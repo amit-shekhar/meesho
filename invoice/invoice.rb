@@ -27,8 +27,8 @@ fork do
       puts order_id
       if !order_id.nil?
         logger.warn("order_id:#{message.value} request")
-        sleep 20 #TODO create invoice 
-        redis.set("order:invoice:#{message.value}",1)
+        sleep 20 #TODO create invoice
+        redis.set("order:invoice:#{message.value}")
         logger.warn("order_id:#{message.value} processed")
       end
     rescue => e
